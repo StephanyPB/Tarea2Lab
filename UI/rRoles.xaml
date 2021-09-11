@@ -1,0 +1,57 @@
+﻿<Window x:Class="Tarea2Lab.UI.rRoles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tarea2Lab.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="rRoles">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Grid.RowSpan="1" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="235,67,0,0">
+            <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                <Label Content="Rol ID:" Height="27" />
+                <TextBox x:Name="RolIDTextBox"  Text="{Binding RolId}" Height="20" Width="90" />
+                <Button x:Name="BuscarButton" Content="Buscar:" Click="BuscarButton_Click"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Height="38">
+                <Label Content="Fecha Creacion:" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
+                <DatePicker x:Name="FechaCreacionDatePicker" Text="{Binding FechaCreacion}" Height="30" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                <Label Content="Descripcion"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="DescripcionTextBox"  Text="{Binding Descripcion}" Height="20" Width="70"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="NButton" Content="Nuevo" Click="NButton_Click" Height="30" Width="50" Margin="30" VerticalContentAlignment="Center" Cursor="ScrollNE" >
+
+                    <AutomationProperties.LabeledBy>
+                        <UIElement/>
+                    </AutomationProperties.LabeledBy>
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Effect>
+                        <DropShadowEffect/>
+                    </StackPanel.Effect>
+                    <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click" Height="30" Width="50" Margin="-10" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"  />
+                    <StackPanel Orientation="Horizontal" Width="122">
+                        <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click" Height="30" Width="50" Margin="30" />
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>
