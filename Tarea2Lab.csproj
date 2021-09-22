@@ -8,8 +8,30 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Buscar.png" />
+	  <None Remove="Resources\eliminar.jpeg" />
+	  <None Remove="Resources\guardar.jpeg" />
+	  <None Remove="Resources\nuevo.jpeg" />
+	  <None Remove="Resources\Nuevo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\Buscar.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\guardar.jpeg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\nuevo.jpeg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Nuevo.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
 		<Folder Include="DAL\" />
-		<Folder Include="Entidades\" />
 		<Folder Include="DATA\" />
 	</ItemGroup>
 
@@ -19,6 +41,12 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\eliminar.jpeg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>

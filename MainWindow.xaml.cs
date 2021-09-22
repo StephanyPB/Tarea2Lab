@@ -31,5 +31,12 @@ namespace Tarea2Lab
             rRoles roles = new rRoles();
             roles.Show();
         }
+
+        private void UsuarioMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rUsuario usuario = new rUsuario();
+            usuario.Show();
+
+        }
     }
 }

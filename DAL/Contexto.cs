@@ -13,6 +13,7 @@ namespace Tarea2Lab.DAL
     public class Contexto : DbContext
     {
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:Tarea2Lab"
         xmlns:Accessibility="clr-namespace:Accessibility;assembly=Accessibility" x:Class="Tarea2Lab.MainWindow"
         mc:Ignorable="d"
-        Title="Roles" Height="450" Width="800">
+        Title="Principal" Height="400" Width="400">
     <Grid>
         <StackPanel>
             <Menu Height="18">
                 <MenuItem Header="Registros">
                     <MenuItem x:Name="RolesMenuItem" Header="Registro de Roles" Click="RolesMenuItem_Click"></MenuItem>
+                    <MenuItem x:Name="UsuarioMenuItem" Header="Registro de Usuarios" Click="UsuarioMenuItem_Click"></MenuItem>
+
                 </MenuItem>
 
                 <MenuItem Header="Ayuda">
