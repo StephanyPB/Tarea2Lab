@@ -42,7 +42,7 @@ namespace Tarea2Lab.UI
         private bool Validar()
         {
             bool esValido = true;
-            //valida los otros pendeja
+           
             if (NombresTextBox.Text.Length == 0)
             {
                 esValido = false;
