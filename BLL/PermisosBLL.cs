@@ -8,32 +8,31 @@ using System.Threading.Tasks;
 using Tarea2Lab.DAL;
 using Tarea2Lab.Entidades;
 
+
 namespace Tarea2Lab.BLL
 {
-    /// <summary>
-    /// En esta clase debemos programar toda la logica de negocios
-    /// </summary>
-    public class RolesBLL
+     public class PermisosBLL
     {
+      
         /// <summary>
         /// Permite Guardar una entidad en la base de datos
         /// </summary>
 
-        public static bool Guardar(Roles roles)
+        public static bool Guardar(Permisos permiso)
         {
-            if (!Existe(roles.RolId))
-                return Insertar(roles);
+            if (!Existe(permiso.PermisoId))
+                return Insertar(permiso);
             else
-                return Modificar(roles);
+                return Modificar(permiso);
         }
-        private static bool Insertar(Roles roles)
+        private static bool Insertar(Permisos permiso)
         {
             bool paso = false;
             //Creamos una instancia del contexto para poder conectar con la DB
             Contexto db = new Contexto();
             try
             {
-                if (db.Roles.Add(roles) != null)
+                if (db.Permiso.Add(permiso) != null)
                     paso = db.SaveChanges() > 0;
             }
             catch (Exception)
@@ -47,23 +46,13 @@ namespace Tarea2Lab.BLL
         /// <summary>
         /// Permite Modificar una entidad en la base de datos
         /// </summary>
-        private static bool Modificar(Roles roles)
+        private static bool Modificar(Permisos permiso)
         {
             bool paso = false;
             Contexto db = new Contexto();
             try
             {
-                //busca la entidad en la base de datos y la elimina
-                db.Database.ExecuteSqlRaw($"Delete FROM RolesDetalle Where RolId={roles.RolId}");
-
-                foreach (var item in roles.Detalle)
-                {
-                    item.Id = 0;
-                    db.Entry(item).State = EntityState.Added;
-                }
-
-                //marcar la entidad como modificada para que el contexto sepa como proceder
-                db.Entry(roles).State = EntityState.Modified;
+                db.Entry(permiso).State = EntityState.Modified;
                 paso = db.SaveChanges() > 0;
             }
             catch (Exception)
@@ -83,14 +72,14 @@ namespace Tarea2Lab.BLL
             Contexto db = new Contexto();
             try
             {
-                Roles roles = db.Roles.Find(id);
+                Permisos permiso = db.Permiso.Find(id);
 
                 if (Existe(id))
                 {
-                    db.Roles.Remove(roles);
+                    db.Permiso.Remove(permiso);
                     paso = db.SaveChanges() > 0;
                 }
-                   
+
             }
             catch (Exception)
             { throw; }
@@ -100,16 +89,17 @@ namespace Tarea2Lab.BLL
             }
             return paso;
         }
+
         /// <summary>
         /// Permite Buscar una entidad en la base de datos
         /// </summary>
-        public static Roles Buscar(int id)
+        public static Permisos Buscar(int id)
         {
             Contexto db = new Contexto();
-            Roles roles = new Roles();
+            Permisos permiso = new Permisos();
             try
             {
-                roles = db.Roles.Include(x=>x.Detalle).Where(x=>x.RolId==id).SingleOrDefault();
+                permiso = db.Permiso.Find(id);
                 db.Dispose();
             }
             catch (Exception)
@@ -120,18 +110,18 @@ namespace Tarea2Lab.BLL
             {
                 db.Dispose();
             }
-            return roles;
+            return permiso;
         }
         /// <summary>
         /// Permite extraer una lista de Roles de la base de datos
         /// </summary>
-        public static List<Roles> GetList(Expression<Func<Roles, bool>> expression)
+        public static List<Permisos> GetList(Expression<Func<Permisos, bool>> expression)
         {
-            List<Roles> Roles = new List<Roles>();
+            List<Permisos> Permisos = new List<Permisos>();
             Contexto db = new Contexto();
             try
             {
-                Roles = db.Roles.Where(expression).ToList();
+                Permisos = db.Permiso.Where(expression).ToList();
                 db.Dispose();
             }
             catch (Exception)
@@ -142,7 +132,7 @@ namespace Tarea2Lab.BLL
             {
                 db.Dispose();
             }
-            return Roles;
+            return Permisos;
         }
         private static bool Existe(int id)
         {
@@ -150,7 +140,7 @@ namespace Tarea2Lab.BLL
             Contexto db = new Contexto();
             try
             {
-                encontrado = db.Roles.Any(x => x.RolId == id);
+                encontrado = db.Permiso.Any(x => x.PermisoId == id);
             }
             catch (Exception)
             {

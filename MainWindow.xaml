@@ -13,12 +13,10 @@
                 <MenuItem Header="Registros">
                     <MenuItem x:Name="RolesMenuItem" Header="Registro de Roles" Click="RolesMenuItem_Click"></MenuItem>
                     <MenuItem x:Name="UsuarioMenuItem" Header="Registro de Usuarios" Click="UsuarioMenuItem_Click"></MenuItem>
-
+                    <MenuItem x:Name="PermisoMenuItem" Header="Registro de Permiso" Click="PermisoMenuItem_Click"></MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="Ayuda">
-                    <Menu/>
-                </MenuItem>
+                
             </Menu>
         </StackPanel>
     </Grid>

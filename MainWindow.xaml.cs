@@ -38,5 +38,11 @@ namespace Tarea2Lab
             usuario.Show();
 
         }
+
+        private void PermisoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rPermisos permiso = new rPermisos();
+            permiso.Show();
+        }
     }
 }

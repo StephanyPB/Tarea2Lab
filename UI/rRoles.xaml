@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Tarea2Lab.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="900" d:DesignWidth="800"
       Title="Roles">
 
     <Grid>
@@ -13,7 +13,12 @@
             <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
                 <Label Content="Rol ID:" Height="27" />
                 <TextBox x:Name="RolIDTextBox"  Text="{Binding RolId}" Height="20" Width="90" />
-                <Button x:Name="BuscarButton" Content="Buscar:" Click="BuscarButton_Click"  />
+                <Button x:Name="BuscarButton" Click="BuscarButton_Click"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Buscar.png"/>
+                        <Label Content="Buscar"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Height="38">
                 <Label Content="Fecha Creacion:" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
@@ -27,8 +32,38 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="NButton" Content="Nuevo" Click="NButton_Click" Height="30" Width="50" Margin="30" VerticalContentAlignment="Center" Cursor="ScrollNE" >
+            <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                <Label x:Name="PermisoIdLabel" Content="Permiso ID"/>
+                <ComboBox x:Name="PermisoIDComboBox" SelectedValue="{Binding PermisoID}" Height="20" Width="90"/>
+                <Button x:Name="AgregarPermisoButton" Click="AgregarPermisoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-add-64.png" Height="27" Width="33" />
+                        <Label Content="Agregar"/>
+                        
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarPermiso" Click="EliminarPermiso_Click" Margin=" 5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/eliminar.jpeg" Height="27" Width="33" />
+                            <Label Content="Eliminar"/>
+                    </StackPanel>
+                        </Button>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Left" >
+                <DataGrid x:Name="DatosDataGrid" Height="200" Width="400" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="RolId" Binding="{Binding RolId}"/>
+                        <DataGridTextColumn Header="PermisoID" Binding="{Binding PermisoId}"/>
+                        <DataGridTextColumn Header="EsAsignado" Binding="{Binding EsAsignado}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="30">
+                <Button x:Name="NButton"  Click="NButton_Click" Height="30" Width="70" Margin="30" VerticalContentAlignment="Center" Cursor="ScrollNE" >
 
                     <AutomationProperties.LabeledBy>
                         <UIElement/>
@@ -36,15 +71,30 @@
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/nuevo.jpeg"/>
+                        <Label Content="Nuevo"/>
+                    </StackPanel>
 
                 </Button>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel.Effect>
                         <DropShadowEffect/>
                     </StackPanel.Effect>
-                    <Button x:Name="GuardarButton" Content="Guardar" Click="GuardarButton_Click" Height="30" Width="50" Margin="-10" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"  />
+                    <Button x:Name="GuardarButton"  Click="GuardarButton_Click" Height="30" Width="80" Margin="-10" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"  >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/guardar.jpeg"/>
+                            <Label Content="Guardar"/>
+                        </StackPanel>
+                    </Button>
                     <StackPanel Orientation="Horizontal" Width="122">
-                        <Button x:Name="EliminarButton" Content="Eliminar" Click="EliminarButton_Click" Height="30" Width="50" Margin="30" />
+                        <Button x:Name="EliminarButton"  Click="EliminarButton_Click" Height="30" Width="80" Margin="30" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/eliminar.jpeg"/>
+                                <Label Content="Eliminar"/>
+                            </StackPanel>
+                        </Button>
 
                     </StackPanel>
                 </StackPanel>
@@ -53,5 +103,6 @@
 
 
         </StackPanel>
+        
     </Grid>
 </Window>
